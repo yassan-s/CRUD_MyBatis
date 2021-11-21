@@ -1,6 +1,7 @@
 # CRUD for MyBatis
 MyBatisを用いたCRUD処理の把握
 
+
 ## JDBCとの違い
 ### jdbcTemplate
 1. String型でSQLを変数に格納する
@@ -19,7 +20,7 @@ Object: 値<br>
 ### MyBatis
 1. Mapperを準備する
 2. src/main/resources直下に、mapperのフォルダを作成<br>
-   passは、packageに例を記載「com.example.demo.mapper」
+   passはpackageに例を記載「com.example.demo.mapper」
 3. Mapper.xmlを作成
 4. xmlファイルにSQLを記載
 5. Serviceにフィールドとして追記
@@ -37,7 +38,7 @@ Object: 値<br>
   //resultType: entitiyのクラス
 	<select id="selectAll" resultType="com.example.demo.entitiy.Saving">
 		SELECT *
-		FROM HOUSEHOLD_EXPENSES
+		FROM テーブル名
 	</select>
 </mapper>
 ```
