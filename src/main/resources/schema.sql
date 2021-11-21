@@ -6,6 +6,6 @@ CREATE TABLE household_expenses
    category_id int(2) NOT NULL,
    money int NOT NULL,
    income_cost_flg int NOT NULL,
-   note text,
+   note varchar(100),
    PRIMARY KEY(id)
 );
