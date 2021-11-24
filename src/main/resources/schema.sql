@@ -9,3 +9,10 @@ CREATE TABLE household_expenses
    note varchar(100),
    PRIMARY KEY(id)
 );
+
+CREATE TABLE categories
+(
+   id INT NOT NULL AUTO_INCREMENT,
+   category_name varchar(100) NOT NULL,
+   PRIMARY KEY(id)
+);

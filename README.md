@@ -25,7 +25,8 @@ Object: 値<br>
 4. xmlファイルにSQLを記載
 5. Serviceにフィールドとして追記
 
-下記に例を記載
+下記に例を記載<br>
+entitiy.Savingに格納する場合
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
@@ -42,6 +43,50 @@ Object: 値<br>
 	</select>
 </mapper>
 ```
+entity.SavingとCategoryのテーブル結合をする場合<br>
+(header部分は省略)
+```
+<mapper namespace="com.example.demo.mapper.SavingMapper">
+
+	<select id="selectAll" resultMap="savingMap">
+		SELECT
+   		   HE.ID
+  		  ,HE.USER_ID
+		  ,HE.RECODE_DATE
+		  ,HE.MONEY
+		  ,HE.INCOME_COST_FLG
+		  ,HE.NOTE
+		  ,CG.CATEGORY_NAME
+		FROM
+		  HOUSEHOLD_EXPENSES HE
+		LEFT JOIN
+		  CATEGORIES CG
+		ON
+		  HE.CATEGORY_ID = CG.ID
+	</select>
+
+	<resultMap id="savingMap" type="com.example.demo.entitiy.Saving">
+		<id property="id" column="id"/>
+		<result property="user_id" column="user_id"/>
+		<result property="recode_date" column="recode_date"/>
+		<result property="money" column="money"/>
+		<result property="income_cost_flg" column="income_cost_flg"/>
+		<result property="note" column="note"/>
+		<association property="category" resultMap="categoryResult"/>
+	</resultMap>
+
+	<resultMap id="categoryResult" type="com.example.demo.entitiy.Category">
+		<id property="id" column="id"/>
+		<result property="category_name" column="category_name"/>
+	</resultMap>
+
+</mapper>
+```
+property: JavaBean プロパティ<br>
+プロパティがなければ、フィールドを探す。<br>
+
+column: DBで定義されている列名
+
 
 
 ## ドキュメント
