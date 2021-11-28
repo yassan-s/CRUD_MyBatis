@@ -88,6 +88,16 @@ property: JavaBean プロパティ<br>
 column: DBで定義されている列名
 
 
+## Create処理
+### Form
+Formのデータは、Formクラスにまとめて渡される
+最初にForm画面に初期化されたインスタンスが格納<br>
+処理の流れ
+1. form画面から値をformクラスに格納し、コントローラーに渡す
+2. formクラスからentityに詰め直す
+3. entityをもとにDBに登録処理
+4. 戻り値としてredirect先のhtmlを指定する
+
 
 ## ドキュメント
 ***

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entitiy.Saving;
+import com.example.demo.entity.Saving;
 import com.example.demo.mapper.SavingMapper;
 
 @Service
@@ -16,6 +16,10 @@ public class SavingService {
 
 	public List<Saving> getSavingList(){
 		return savingMapper.selectAll();
+	}
+
+	public void insert(Saving saving) {
+		savingMapper.insertSaving(saving);
 	}
 
 }

@@ -22,7 +22,7 @@
 		  HE.CATEGORY_ID = CG.ID
 	</select>
 
-	<resultMap id="savingMap" type="com.example.demo.entitiy.Saving">
+	<resultMap id="savingMap" type="com.example.demo.entity.Saving">
 		<id property="id" column="id"/>
 		<result property="user_id" column="user_id"/>
 		<result property="recode_date" column="recode_date"/>
@@ -32,9 +32,14 @@
 		<association property="category" resultMap="categoryResult"/>
 	</resultMap>
 
-	<resultMap id="categoryResult" type="com.example.demo.entitiy.Category">
+	<resultMap id="categoryResult" type="com.example.demo.entity.Category">
 		<id property="id" column="id"/>
 		<result property="category_name" column="category_name"/>
 	</resultMap>
+
+	<insert id="insertSaving" parameterType="com.example.demo.entity.Saving">
+		INSERT INTO household_expenses(user_id, recode_date, category_id, money, income_cost_flg, note)
+		VALUES (#{user_id}, #{recode_date}, #{category_id}, #{money}, #{income_cost_flg}, #{note})
+	</insert>
 
 </mapper>
