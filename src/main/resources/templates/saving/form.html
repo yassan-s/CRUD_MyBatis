@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>貯金管理</title>
 </head>
+
 <body>
+<h1 th:text="${title}">form</h1>
+
+<form method="post" th:action="@{/saving/insert}" th:object="${savingForm}">
+
+	<label>費目（選択してください）:</label>
+	<select name="category_id">
+	<option value="1">収入</option>
+	<option value="2">生活費</option>
+	<option value="3">食費</option>
+	<option value="4">貯金</option>
+	</select><br>
+
+  	<label><input type="radio" name="income_cost_flg" value="0" checked>支出</label>
+  	<label><input type="radio" name="income_cost_flg" value="1">収入</label>
+
+	<div>
+	<label for="money">金額 :</label>
+	<input type="number" id="money" name="money"><br>
+	</div>
+
+	<label for="note">メモ :</label>
+	<textarea id="note" name="note" rows="3" cols="40"></textarea><br>
+
+	<label>日時 :</label>
+	<input type="datetime-local" id="recode_date" name="recode_date"/><br>
+
+	<input type="hidden" name="user_id" value="1">
+
+	<input type="submit" value="登録">
+
+</form>
 
 </body>
 </html>
