@@ -32,10 +32,20 @@ public class SavingController {
 	@GetMapping
 	public String list(Model model) {
 
-		model.addAttribute("test", "貯金");
+		model.addAttribute("test", "Home");
 
+		//支出入を取得
 		List<Saving> savings = service.getSavingList();
+
+		//合計収入を計算
+		int totalIncome = service.sumIncome(savings);
+		//合計支出を計算
+		int totalCost = service.sumCost(savings);
+
 		model.addAttribute("savings", savings);
+		model.addAttribute("totalIncome", totalIncome);
+		model.addAttribute("totalCost", totalCost);
+		model.addAttribute("totalMoney", totalIncome - totalCost);
 
 		return "saving/list";
 	}

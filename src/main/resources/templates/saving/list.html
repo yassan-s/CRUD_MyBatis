@@ -14,9 +14,17 @@
 </head>
 
 <body>
-<h1 th:text="${test}">sample</h1>
+<!-- header.htmlをインクルード -->
+<div th:insert="~{header :: page_list}"></div>
+
+<h1 th:text="${test}">title</h1>
 
 <div class="container">
+	<div class="row">
+		<h3>収入 : <span th:text="${totalIncome}">+</span> 円</h3>
+		<h3>支出 : <span th:text="${totalCost}">-</span> 円</h3>
+		<h3>合計 : <span th:text="${totalMoney}">+-</span> 円</h3>
+	</div><!-- row -->
 	<div class="row">
 		<div class="col">
 			<table class="table">
@@ -27,7 +35,7 @@
 						<th scope="col">登録日</th>
 						<th scope="col">カテゴリー</th>
 						<th scope="col">金額</th>
-						<th scope="col">収入支出判断</th>
+						<!-- <th scope="col">収入支出判断</th> -->
 						<th scope="col">メモ</th>
 					</tr>
 				</thead>
@@ -38,7 +46,7 @@
 						<td th:text="${saving.recode_date}">recode_date</td>
 						<td th:text="${saving.category.category_name}">category_name</td>
 						<td th:text="${saving.money}">money</td>
-						<td th:text="${saving.income_cost_flg}">income_cost_flg</td>
+						<!-- <td th:text="${saving.income_cost_flg}">income_cost_flg</td> -->
 						<td th:text="${saving.note}">note</td>
 					</tr>
 				</tbody>

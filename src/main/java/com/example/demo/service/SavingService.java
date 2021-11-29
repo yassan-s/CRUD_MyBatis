@@ -14,12 +14,55 @@ public class SavingService {
 	@Autowired
 	SavingMapper savingMapper;
 
+	/**
+	* 一覧表示
+	* @return List<Saving>
+	*/
 	public List<Saving> getSavingList(){
 		return savingMapper.selectAll();
 	}
 
+	/**
+	* 入出金データ１件の登録
+	* @param saving
+	*/
 	public void insert(Saving saving) {
 		savingMapper.insertSaving(saving);
 	}
 
+	/**
+	* 収入の集計
+	* 計算の条件 income_cost_flg == １
+	* @param List<Saving> savings
+	* @return totalIncome
+	*/
+	public int sumIncome(List<Saving> savings) {
+
+		int totalIncome = 0;
+
+		for (Saving saving : savings) {
+			if (saving.getIncome_cost_flg() == 1) {
+			totalIncome += saving.getMoney();
+			}
+		}
+		return totalIncome;
+	}
+
+	/**
+	* 支出の集計
+	* 計算の条件 income_cost_flg == 0
+	* @param List<Saving> savings
+	* @return totalIncome
+	*/
+	public int sumCost(List<Saving> savings) {
+
+		int totalCost = 0;
+
+		for (Saving saving : savings) {
+			if (saving.getIncome_cost_flg() == 0) {
+				totalCost += saving.getMoney();
+			}
+		}
+		return totalCost;
+	}
 }
