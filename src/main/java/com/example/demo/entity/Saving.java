@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
 * 貯金(Saving)項目と金額
@@ -9,7 +9,7 @@ public class Saving {
 
 	private int id;
 	private int user_id;
-	private LocalDateTime recode_date;
+	private LocalDate recode_date;
 	private int category_id;
 	private Category category;
 	private int money;
@@ -30,10 +30,10 @@ public class Saving {
 		this.user_id = user_id;
 	}
 
-	public LocalDateTime getRecode_date() {
+	public LocalDate getRecode_date() {
 		return recode_date;
 	}
-	public void setRecode_date(LocalDateTime recode_date) {
+	public void setRecode_date(LocalDate recode_date) {
 		this.recode_date = recode_date;
 	}
 

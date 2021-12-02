@@ -1,6 +1,6 @@
 package com.example.demo.form;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,8 +12,8 @@ public class SavingForm {
 	private int user_id;
 
 	// form画面から取得した値をformat変換する
-	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-	private LocalDateTime recode_date;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate recode_date;
 
 	private int category_id;
 
@@ -30,10 +30,10 @@ public class SavingForm {
 		this.user_id = user_id;
 	}
 
-	public LocalDateTime getRecode_date() {
+	public LocalDate getRecode_date() {
 		return recode_date;
 	}
-	public void setRecode_date(LocalDateTime recode_date) {
+	public void setRecode_date(LocalDate recode_date) {
 		this.recode_date = recode_date;
 	}
 
