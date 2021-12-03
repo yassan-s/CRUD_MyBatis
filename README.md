@@ -83,7 +83,7 @@ entity.SavingとCategoryのテーブル結合をする場合<br>
 </mapper>
 ```
 property: JavaBean プロパティ<br>
-プロパティがなければ、フィールドを探す。<br>
+プロパティがなければ、フィールドを探す<br>
 
 column: DBで定義されている列名
 
@@ -92,11 +92,14 @@ column: DBで定義されている列名
 ### Form
 Formのデータは、Formクラスにまとめて渡される<br>
 最初にForm画面に初期化されたインスタンスが格納<br>
-処理の流れ
+
+#### 処理の流れ
 1. form画面から値をformクラスに格納し、コントローラーに渡す
 2. formクラスからentityに詰め直す
 3. entityをもとにDBに登録処理
 4. 戻り値としてredirect先のhtmlを指定する
+
+form.htmlを作成する際に、inputタグ内のnameとFormクラスのフィールド名を一致させる<br>
 
 
 ## ドキュメント

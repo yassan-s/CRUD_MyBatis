@@ -12,6 +12,7 @@ public class SavingForm {
 	private int user_id;
 
 	// form画面から取得した値をformat変換する
+	// 入力値はString型として扱われるため
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate recode_date;
 
