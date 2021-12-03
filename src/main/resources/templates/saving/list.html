@@ -15,7 +15,7 @@
 
 <body>
 <!-- header.htmlをインクルード -->
-<div th:insert="~{header :: page_list}"></div>
+<div th:insert="~{fragment/header :: page_list}"></div>
 
 <h1 th:text="${test}">title</h1>
 
@@ -37,6 +37,7 @@
 						<th scope="col">金額</th>
 						<!-- <th scope="col">収入支出判断</th> -->
 						<th scope="col">メモ</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,11 +45,14 @@
 						<td th:text="${saving.id}">id</td>
 						<td th:text="${saving.user_id}">user_id</td>
 						<td th:text="${saving.recode_date}">recode_date</td>
-						<!-- <td th:text="${#dates.format(saving.recode_date, 'yyyy/MM/dd')}">recode_date</td> -->
 						<td th:text="${saving.category.category_name}">category_name</td>
 						<td th:text="${saving.money}">money</td>
 						<!-- <td th:text="${saving.income_cost_flg}">income_cost_flg</td> -->
 						<td th:text="${saving.note}">note</td>
+						<td>
+							<a class="btn btn-outline-success" href="/saving/form" role="button">更新</a>
+							<a class="btn btn-outline-danger" href="/saving/form" role="button" >削除</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
