@@ -50,7 +50,7 @@
 						<!-- <td th:text="${saving.income_cost_flg}">income_cost_flg</td> -->
 						<td th:text="${saving.note}">note</td>
 						<td>
-							<a class="btn btn-outline-success" href="/saving/form" role="button">更新</a>
+							<a class="btn btn-outline-success" th:href="@{'/saving/edit/'+${saving.id}}" role="button">更新</a>
 							<a class="btn btn-outline-danger" href="/saving/form" role="button" >削除</a>
 						</td>
 					</tr>

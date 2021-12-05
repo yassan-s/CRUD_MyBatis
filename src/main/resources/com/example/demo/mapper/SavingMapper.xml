@@ -42,4 +42,32 @@
 		VALUES (#{user_id}, #{recode_date}, #{category_id}, #{money}, #{income_cost_flg}, #{note})
 	</insert>
 
+	<select id="getSaving" resultType="com.example.demo.entity.Saving" parameterType="int">
+		SELECT
+   		   ID
+  		  ,USER_ID
+		  ,RECODE_DATE
+		  ,CATEGORY_ID
+		  ,MONEY
+		  ,INCOME_COST_FLG
+		  ,NOTE
+		FROM
+		  HOUSEHOLD_EXPENSES
+		WHERE
+	      ID = #{id}
+	</select>
+
+	<update id="updateSaving" parameterType="com.example.demo.entity.Saving">
+		UPDATE
+		  HOUSEHOLD_EXPENSES
+		SET
+		   RECODE_DATE      = #{recode_date}
+		  ,CATEGORY_ID      = #{category_id}
+		  ,MONEY            = #{money}
+		  ,INCOME_COST_FLG  = #{income_cost_flg}
+		  ,NOTE             = #{note}
+		WHERE
+		  ID = #{id}
+	</update>
+
 </mapper>

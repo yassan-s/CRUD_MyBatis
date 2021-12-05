@@ -31,6 +31,22 @@ public class SavingService {
 	}
 
 	/**
+	* 1件のレコードを取得し,Form画面表示(更新処理用)
+	* @param id
+	*/
+	public Saving getSaving(int id) {
+		return savingMapper.getSaving(id);
+	}
+
+	/**
+	* 入出金データ１件の更新
+	* @param saving
+	*/
+	public void update(Saving saving) {
+		savingMapper.updateSaving(saving);
+	}
+
+	/**
 	* 収入の集計
 	* 計算の条件 income_cost_flg == １
 	* @param List<Saving> savings
