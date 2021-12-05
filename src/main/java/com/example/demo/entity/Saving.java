@@ -16,6 +16,7 @@ public class Saving {
 	private int income_cost_flg;
 	private String note;
 
+
 	public int getId() {
 		return id;
 	}

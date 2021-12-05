@@ -9,6 +9,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 */
 public class SavingForm {
 
+	private int id;
+
 	private int user_id;
 
 	// form画面から取得した値をformat変換する
@@ -23,6 +25,18 @@ public class SavingForm {
 	private int income_cost_flg;
 
 	private String note;
+
+	// form画面判別用
+	// true 新規登録 false 更新
+	private boolean newSaving;
+
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -64,6 +78,13 @@ public class SavingForm {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public boolean isNewSaving() {
+		return newSaving;
+	}
+	public void setNewSaving(boolean newSaving) {
+		this.newSaving = newSaving;
 	}
 
 }
