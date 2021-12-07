@@ -122,6 +122,21 @@ public class SavingController {
 	}
 
 	/**
+	* 入出金データ１件の削除
+	* @param model
+	* @param @PathVariable("id") int id
+	* @return redirect:/saving
+	*/
+	@GetMapping("/delete/{id}")
+	public String delete(Model model, @PathVariable("id") int id) {
+
+		service.delete(id);
+
+		return "redirect:/saving";
+
+	}
+
+	/**
 	* SavingForm(Form)からSaving(entity)に変換
 	* @param savingForm
 	* @return saving

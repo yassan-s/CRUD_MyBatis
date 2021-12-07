@@ -47,6 +47,14 @@ public class SavingService {
 	}
 
 	/**
+	* 入出金データ１件の削除
+	* @param id
+	*/
+	public void delete(int id) {
+		savingMapper.deleteSaving(id);
+	}
+
+	/**
 	* 収入の集計
 	* 計算の条件 income_cost_flg == １
 	* @param List<Saving> savings

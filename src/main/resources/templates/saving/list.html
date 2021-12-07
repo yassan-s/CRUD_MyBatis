@@ -51,7 +51,7 @@
 						<td th:text="${saving.note}">note</td>
 						<td>
 							<a class="btn btn-outline-success" th:href="@{'/saving/edit/'+${saving.id}}" role="button">更新</a>
-							<a class="btn btn-outline-danger" href="/saving/form" role="button" >削除</a>
+							<a class="btn btn-outline-danger" th:href="@{'/saving/delete/'+${saving.id}}" role="button" >削除</a>
 						</td>
 					</tr>
 				</tbody>
