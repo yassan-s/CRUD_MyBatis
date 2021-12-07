@@ -21,4 +21,7 @@ public interface SavingMapper {
 	// 1件更新
 	public void updateSaving(Saving saving);
 
+	// 1件削除
+	public void deleteSaving(int id);
+
 }

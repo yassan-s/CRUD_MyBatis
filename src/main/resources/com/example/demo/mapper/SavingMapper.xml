@@ -20,6 +20,8 @@
 		  CATEGORIES CG
 		ON
 		  HE.CATEGORY_ID = CG.ID
+		ORDER BY
+		  RECODE_DATE DESC
 	</select>
 
 	<resultMap id="savingMap" type="com.example.demo.entity.Saving">
@@ -69,5 +71,12 @@
 		WHERE
 		  ID = #{id}
 	</update>
+
+	<delete id="deleteSaving" parameterType="int">
+		DELETE FROM
+		  HOUSEHOLD_EXPENSES
+		WHERE
+		  ID = #{id}
+	</delete>
 
 </mapper>
