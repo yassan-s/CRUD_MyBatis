@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.Category;
 import com.example.demo.entity.Saving;
+import com.example.demo.mapper.CategoryMapper;
 import com.example.demo.mapper.SavingMapper;
 
 @Service
@@ -13,6 +15,9 @@ public class SavingService {
 
 	@Autowired
 	SavingMapper savingMapper;
+
+	@Autowired
+	CategoryMapper categoryMapper;
 
 	/**
 	* 一覧表示
@@ -53,6 +58,16 @@ public class SavingService {
 	public void delete(int id) {
 		savingMapper.deleteSaving(id);
 	}
+
+	/**
+	* 全カテゴリーの取得
+	* @param
+	* @return List<Category>
+	*/
+	public List<Category> getCategoryAll(){
+		return categoryMapper.getCategoryAll();
+	}
+
 
 	/**
 	* 収入の集計
