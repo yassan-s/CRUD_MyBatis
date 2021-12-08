@@ -16,7 +16,6 @@ public class Saving {
 	private int income_cost_flg;
 	private String note;
 
-
 	public int getId() {
 		return id;
 	}
@@ -45,13 +44,6 @@ public class Saving {
 		this.category_id = category_id;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public int getMoney() {
 		return money;
 	}
@@ -71,6 +63,13 @@ public class Saving {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 

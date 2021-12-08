@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.entity.Category;
 import com.example.demo.entity.Saving;
 import com.example.demo.form.SavingForm;
 import com.example.demo.service.SavingService;
@@ -65,6 +66,10 @@ public class SavingController {
 		// savingFormを新規登録のために、trueを格納
 		savingForm.setNewSaving(true);
 
+		// カテゴリー一覧を取得し,Formクラスに格納
+		List<Category> categories = service.getCategoryAll();
+		savingForm.setCategories(categories);
+
 		return "saving/form";
 	}
 
@@ -100,6 +105,11 @@ public class SavingController {
 		savingForm.setNewSaving(false);
 
 		model.addAttribute("title", "更新form");
+
+		// カテゴリー一覧を取得し,Formクラスに格納
+		List<Category> categories = service.getCategoryAll();
+		savingForm.setCategories(categories);
+
 		model.addAttribute(savingForm);
 
 		return "saving/form";

@@ -1,8 +1,11 @@
 package com.example.demo.form;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.example.demo.entity.Category;
 
 /**
 * Formの入力値を格納
@@ -25,6 +28,8 @@ public class SavingForm {
 	private int income_cost_flg;
 
 	private String note;
+
+	private List<Category> categories;
 
 	// form画面判別用
 	// true 新規登録 false 更新
@@ -86,5 +91,13 @@ public class SavingForm {
 	public void setNewSaving(boolean newSaving) {
 		this.newSaving = newSaving;
 	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
 
 }
