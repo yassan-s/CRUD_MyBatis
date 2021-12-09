@@ -34,8 +34,6 @@ public class SavingController {
 	@GetMapping
 	public String list(Model model) {
 
-		model.addAttribute("test", "Home");
-
 		//支出入を取得
 		List<Saving> savings = service.getSavingList();
 
@@ -44,6 +42,7 @@ public class SavingController {
 		//合計支出を計算
 		int totalCost = service.sumCost(savings);
 
+		model.addAttribute("test", "Home");
 		model.addAttribute("savings", savings);
 		model.addAttribute("totalIncome", totalIncome);
 		model.addAttribute("totalCost", totalCost);
@@ -61,14 +60,14 @@ public class SavingController {
 	@GetMapping("/form")
 	public String getForm(Model model, SavingForm savingForm) {
 
-		model.addAttribute("title", "新規Form");
-
 		// savingFormを新規登録のために、trueを格納
 		savingForm.setNewSaving(true);
 
 		// カテゴリー一覧を取得し,Formクラスに格納
 		List<Category> categories = service.getCategoryAll();
 		savingForm.setCategories(categories);
+
+		model.addAttribute("title", "新規Form");
 
 		return "saving/form";
 	}
@@ -97,6 +96,7 @@ public class SavingController {
 	@GetMapping("/edit/{id}")
 	public String form(Model model, @PathVariable("id") int id) {
 
+		// 更新対象を取得
 		Saving saving = service.getSaving(id);
 
 		// 取得したデータを変換する
@@ -104,12 +104,11 @@ public class SavingController {
 		// savingFormを更新のために、falseを格納
 		savingForm.setNewSaving(false);
 
-		model.addAttribute("title", "更新form");
-
 		// カテゴリー一覧を取得し,Formクラスに格納
 		List<Category> categories = service.getCategoryAll();
 		savingForm.setCategories(categories);
 
+		model.addAttribute("title", "更新form");
 		model.addAttribute(savingForm);
 
 		return "saving/form";
