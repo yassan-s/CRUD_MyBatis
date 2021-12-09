@@ -29,10 +29,11 @@ public class SavingForm {
 
 	private String note;
 
+	// カテゴリー全件を格納
 	private List<Category> categories;
 
 	// form画面判別用
-	// true 新規登録 false 更新
+	// true 新規登録 / false 更新
 	private boolean newSaving;
 
 

@@ -17,14 +17,15 @@
 <!-- header.htmlをインクルード -->
 <div th:insert="~{fragment/header :: page_list}"></div>
 
-<h1 th:text="${test}">title</h1>
-
 <div class="container">
+	<h1 th:text="${test}">title</h1>
+
 	<div class="row">
 		<h3>収入 : <span th:text="${totalIncome}">+</span> 円</h3>
 		<h3>支出 : <span th:text="${totalCost}">-</span> 円</h3>
 		<h3>合計 : <span th:text="${totalMoney}">+-</span> 円</h3>
 	</div><!-- row -->
+
 	<div class="row">
 		<div class="col">
 			<table class="table">
