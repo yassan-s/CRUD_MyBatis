@@ -72,5 +72,4 @@ public class Saving {
 		this.category = category;
 	}
 
-
 }
